@@ -47,3 +47,20 @@ Function.prototype.curry = function(numArgs){
     return _curry;
 };
 
+Function.prototype.curry = function(numArgs){
+    const curryArgs = [];
+    let that = this;
+
+    function _curry(arg) {  
+        if (curryArgs.length < numArgs) {
+            curryArgs.push(arg);   
+        }
+
+        if (curryArgs.length === numArgs) {
+            that(...curryArgs);
+        } else {
+            return _curry;
+        }
+    }
+    return _curry;
+};
