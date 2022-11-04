@@ -1,14 +1,14 @@
-// Function.prototype.myBind = function (context) {
-//     let that = this; 
-//     const thatArguments = Object.values(arguments);
-//     thatArguments.shift();
+Function.prototype.myBind = function (context) {
+    let that = this; 
+    const thatArguments = Object.values(arguments);
+    thatArguments.shift();
 
 
-//     return function(){
-//         const allArguments = thatArguments.concat(Object.values(arguments));
-//         that.apply(context, allArguments);
-//     };
-// };
+    return function(){
+        const allArguments = thatArguments.concat(Object.values(arguments));
+        that.apply(context, allArguments);
+    };
+};
 
 Function.prototype.myBind = function (...outerArgs) {
     let that = this; 
